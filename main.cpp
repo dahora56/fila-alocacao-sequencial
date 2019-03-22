@@ -5,10 +5,13 @@ using namespace std;
 
 int main()
 {
-    int opc, valor;
-    Fila<int> f(10);
+    cout << "Fila Alocacao Sequencial\nJoao Victor Oliveira da Hora\nADS Manha - 3o Ciclo\n" << endl;
+    int opc, valor, valTamanho;
 
-    cout << "Fila Alocacao Sequencial\nJoao Victor Oliveira da Hora\nADS Manha - 3o Ciclo\n\n" << endl;
+    cout << "Digite um valor para o tamanho da fila: ";
+    cin >> valTamanho; cout << "\n";
+
+    Fila<int> f(valTamanho);
 
     do
     {
@@ -38,10 +41,25 @@ int main()
             cout << "Primeiro valor enfileirado: " << f.v[f.inicio] << endl;
             break;
         case 4:
-            for(int i = f.inicio; i <= f.fim; i++)
+            if(f.inicio <= f.fim)
             {
-                cout << f.v[i] << endl;
+                for(int i = f.inicio; i <= f.fim; i++)
+                {
+                    cout << f.v[i] << endl;
+                }
             }
+            else
+            {
+                for(int i = f.inicio; i < f.tamanho; i++)
+                {
+                    cout << f.v[i] << endl;
+                }
+                for(int i = 0; i <= f.fim; i++)
+                {
+                    cout << f.v[i] << endl;
+                }
+            }
+
             break;
         case 9:
             cout << "FIM DA APLICACAO";
