@@ -15,7 +15,7 @@ int main()
 
     do
     {
-        cout << "Escolha uma opcao:\n1 - Inserir\n2 - Remover\n3 - Primeiro Item\n4 - Exibir Fila\n9 - Fim\nEscolha: ";
+        cout << "Escolha uma opcao:\n1 - Inserir\n2 - Remover\n3 - Primeiro Item\n4 - Exibir Fila\n9 - Fim\n\nEscolha: ";
         cin >> opc; cout << "\n";
 
         switch(opc)
@@ -41,28 +41,32 @@ int main()
             cout << "Primeiro valor enfileirado: " << f.v[f.inicio] << endl;
             break;
         case 4:
-            if(f.inicio <= f.fim)
-            {
-                for(int i = f.inicio; i <= f.fim; i++)
-                {
-                    cout << f.v[i] << endl;
-                }
-            }
+            if(f.filaVazia())
+                cout << "A fila esta vazia!\n" << endl;
             else
             {
-                for(int i = f.inicio; i < f.tamanho; i++)
+                if(f.inicio <= f.fim)
                 {
-                    cout << f.v[i] << endl;
+                    for(int i = f.inicio; i <= f.fim; i++)
+                    {
+                        cout << f.v[i] << endl;
+                    }
                 }
-                for(int i = 0; i <= f.fim; i++)
+                else
                 {
-                    cout << f.v[i] << endl;
+                    for(int i = f.inicio; i < f.tamanho; i++)
+                    {
+                        cout << f.v[i] << endl;
+                    }
+                    for(int i = 0; i <= f.fim; i++)
+                    {
+                        cout << f.v[i] << endl;
+                    }
                 }
             }
-
             break;
         case 9:
-            cout << "FIM DA APLICACAO";
+            cout << "\nFIM DA APLICACAO";
             break;
         }
     }while(opc != 9);
